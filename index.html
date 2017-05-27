@@ -1,348 +1,628 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=Nunito"
+	rel="styelsheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Portfolio</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito"
+	rel="styelsheet">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="src/fun_with_svg_arcs.js"></script>
+<script src="js/script.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/canvasjs.min.js"></script>
+<script type="text/javascript" src="js/jquery.canvasjs.min.js"></script>
+<script type="text/javascript" src="js/jquery.interactive_bg.js"></script>
+<script type="text/javascript" src="js/jquery.interactive_bg.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/script/canvasjs.min.js"></script> -->
+<script type="text/javascript">
+	$(function() {
+		$("#bars li .bar").each(function(key, bar) {
+			var percentage = $(this).data('percentage');
+			$(this).animate({
+				'height' : percentage + '%'
+			}, 1000);
+		});
+	});
+	$(document).ready(function() {
+		$(".bg").interactive_bg();
+	});
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	$(window).resize(function() {
+		$(".bg > .ibg-bg").css({
+			width : $(window).outerWidth(),
+			height : $(window).outerHeight()
 
-    <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+		})
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	})
+	$(".bg").interactive_bg({
+		strength : 25,
+		scale : 0.7,
+		animationSpeed : "100ms",
+		contain : true,
+		wrapContent : false
+	});
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	function resize() {
+		var heights = window.innerHeight;
+		$('#left').css('height', heights - 50 + "px");
+	}
+	resize();
+	window.onresize = function() {
+		resize();
+	};
 
+	function demo() {
+		console.log($('.navmedia').height());
+		
+		if ($('.navmedia').height()==0) {
+			$('.navmedia').css('display', 'block');
+			$('.navmedia').css('height', '183px');
+			
+		}
+		else
+			{
+		
+			$('.navmedia').css('display', 'none');
+			$('.navmedia').css('height', '0px');
+			}
+	}
+</script>
+
+<title>Portfolio</title>
 </head>
+<body style="background-color: black;" onload="resize()">
+	<div class="container-fluid" style="background-color: black">
+		<div class="row" style="color: #ccc">
+			<div class="col-md-12 col-xs-12 col-sm-12"
+				style="color: white; font-weight: 100; font-size: 16px;">
+				<nav class="navbar navbar-fixed-top my-navbar role="navigation"" >
 
-<body>
 
-    <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
-            </li>
-            <li>
-                <a href="#top" onclick=$("#menu-close").click();>Home</a>
-            </li>
-            <li>
-                <a href="#about" onclick=$("#menu-close").click();>About</a>
-            </li>
-            <li>
-                <a href="#services" onclick=$("#menu-close").click();>Services</a>
-            </li>
-            <li>
-                <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
-            </li>
-            <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
-            </li>
-        </ul>
-    </nav>
+				<div class="navbar-header " style="color: white">
+					<!-- 	<img src="images/sign.png"> -->
+					<!-- <a class="navbar-brand" href="#">Welcome</a> -->
+				</div>
+				<div>
+					<ul class="nav navbar-nav navbar-right "
+						style="padding-right: 40px;">
 
-    <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
-            <h1>Start Bootstrap</h1>
-            <h3>Free Bootstrap Themes &amp; Templates</h3>
-            <br>
-            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
-        </div>
-    </header>
+						<li><a href="#about" class="right">About</a></li>
+						<li class="right"><a href="#myworks">My Works</a></li>
+						<li class="right"><a href="#contact">Contact</a></li>
+						<li class="right"><a href="#whyme"><button
+									class="button2"
+									style="background-color: #D24B48; border: none; border-radius: 5px">Hire
+									Me</button></a></li>
+						<li><i class="fa fa-bars bars" aria-hidden="true"
+							onclick="demo()"></i></li>
+					</ul>
+				</div>
+				</nav>
 
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+			</div>
+		</div>
 
-    <!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section id="services" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+	</div>
+	<div class="navmedia">
+		<ul
+			style="margin-top: 20px; color: white; text-decoration: none; padding-left: 65px">
 
-    <!-- Callout -->
-    <aside class="callout">
-        <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
-        </div>
-    </aside>
+			<li><a href="#about">About</a></li>
+			<li><a href="#myworks">My Works</a></li>
+			<li><a href="#contact">Contact</a></li>
+			<li><a href="#whyme"><button class="button2"
+						style="background-color: #D24B48; border: none; border-radius: 5px">Hire
+						Me</button></a></li>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+		</ul>
 
-    <!-- Call to Action -->
-    <aside class="call-to-action bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
-                </div>
-            </div>
-        </div>
-    </aside>
+	</div>
 
-    <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
-                    </h4>
-                    <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
-    </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+	<div class="container-fluid " id="left"
+		style="padding: 0; color: white">
+		<div class="bg" data-ibg-bg="images/ice1.jpg"
+			style="background-image: url('images/ice1.jpg'); background-position: top; background-size: cover; color: white; margin-top: 50px; height: 613px; width: 100%; position: absolute; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+		<div class="row" style="margin-top: 250px">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<h1>Hello! I am, Javeed Hussain.</h1>
+				<h3>
+					<b>UX Designer</b> <i>based in </i><b>Hyderabad</b><i> with
+						almost 3 years experience</i>
+				</h3>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 60px">
+			<div class="col-md-4 col-md-offset-4">
+				<center>
+					<a href="#myworks"><button class="button">View My
+							Works</button></a>
+				</center>
+			</div>
+		</div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+		<div class="row" style="margin-top: 50px">
+			<div class="col-md-2 col-md-offset-5 ">
+				<center>
+					<a href="#about" class="active" data-toggle="tooltip" title="">
+						<i class="fa fa-angle-double-down animated bounce"
+						aria-hidden="true" style="font-size: 50px; color: white"></i>
+					</a>
+				</center>
+			</div>
+		</div>
+		<br> <br>
+	</div>
 
-    <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    //#to-top button appears after scrolling
-    var fixed = false;
-    $(document).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            if (!fixed) {
-                fixed = true;
-                // $('#to-top').css({position:'fixed', display:'block'});
-                $('#to-top').show("slow", function() {
-                    $('#to-top').css({
-                        position: 'fixed',
-                        display: 'block'
-                    });
-                });
-            }
-        } else {
-            if (fixed) {
-                fixed = false;
-                $('#to-top').hide("slow", function() {
-                    $('#to-top').css({
-                        display: 'none'
-                    });
-                });
-            }
-        }
-    });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
-    </script>
+	<div class="container-fluid" id="about"
+		style="background-color: #373737;">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10" style="margin-top: 70px">
+						<h2 class="header">
+							<span>About</span>
+						</h2>
+						<br>
+						<p style="font-size: 24px; letter-spacing: 1px; margin-top: 70px;">lorem
+							ipsum lorem ipsumlorem ipsum vlorem ipsum</p>
+						<p style="font-size: 15px; letter-spacing: 1px; margin-top: 40px;">
+							My experience lies in end-to-end user experience, from user
+							research to visual design to usability testing. In my spare time
+							I like to immerse myself in photography, e-learning and code.
+							When it comes to work, I want to be involved in projects that I
+							find challenging with people that inspire me.My experience lies
+							in end-to-end user experience, from user research to visual
+							design to usability testing. In my spare time I like to immerse
+							myself in photography, e-learning and code. When it comes to
+							work, I want to be involved in projects that I find challenging
+							with people that inspire me.</p>
 
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4" STYLE="margin-top: 30px;">
+				<div class="row">
+					<div class="col-md-10 ">
+						<img class="img-circle img-responsive" id="img-resp" src="./images/javeed.jpg"
+							alt="portimage" style="width: 300px; height: 290px; margin: 60px">
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-md-8">
+				<div id="chart">
+					<!-- <ul id="numbers">
+								<li><span>100%</span></li>
+								<li><span>90%</span></li>
+								<li><span>80%</span></li>
+								<li><span>70%</span></li>
+								<li><span>60%</span></li>
+								<li><span>50%</span></li>
+								<li><span>40%</span></li>
+								<li><span>30%</span></li>
+								<li><span>20%</span></li>
+								<li><span>10%</span></li>
+								<li><span>0%</span></li>
+							</ul> -->
+					<ul id="bars">
+						<li><div data-percentage="100" class="bar">
+								<p class="rotate" style="color: black; margin-top: 480%">User&nbsp;Experience</p>
+							</div></li>
+						<li><div data-percentage="88" class="bar">
+								<p class="rotate" style="color: black; margin-top: 410%">User&nbsp;Research</p>
+							</div></li>
+						<li><div data-percentage="80" class="bar">
+								<p class="rotate" style="color: black; margin-top: 360%">Wireframing</p>
+							</div></li>
+						<li><div data-percentage="60" class="bar">
+								<p class="rotate" style="color: black; margin-top: 242%">Prototyping</p>
+							</div></li>
+						<li><div data-percentage="60" class="bar">
+								<p class="rotate" style="color: black; margin-top: 245%">Usability&nbsp;Testing</p>
+							</div></li>
+						<li><div data-percentage="80" class="bar">
+								<p class="rotate" style="color: black; margin-top: 361%">Adobe&nbsp;Illustrator</p>
+							</div></li>
+						<li><div data-percentage="70" class="bar">
+								<p class="rotate" style="color: black; margin-top: 300%">Axure&nbsp;RP</p>
+							</div></li>
+						<li><div data-percentage="60" class="bar">
+								<p class="rotate" style="color: black; margin-top: 245%">Graphic&nbsp;Design</p>
+							</div></li>
+						<li><div data-percentage="40" class="bar">
+								<p class="rotate" style="color: black; margin-top: 130%">Web&nbsp;Design</p>
+							</div></li>
+					</ul>
+				</div>
+				<br> <br> <br> <br>
+
+			</div>
+			<div class="row" style="color: white">
+				<div class="col-md-4 exp-resp">
+					<div class="vertical_line"></div>
+
+					<div class="exp-education col-md-12">
+						<div class="exp-education-box">
+							<time class="exp-education-date" datetime="2014-01T2016-03"
+								style="font-weight: 300; font-size: 12px;  "> <span>Aug
+								<strong class="text-upper">2014 </strong>
+							</span></time>
+
+							<h3 style="font-weight: 600; font-size: 18px;">Junior
+								Designer</h3>
+							<!-- <div class="exp-education-logo">
+								<img src="images/star.png" style="height: 2em; width: 2em"
+									alt="">
+							</div> -->
+							<span class="exp-education-company"
+								style="font-weight: 400; font-size: 16px;">TATA
+								Consulting Services </span>
+						</div>
+
+						<div class="exp-education-box">
+							<time class="exp-education-date" datetime="2014-01T2016-03"
+								style="font-weight: 300; font-size: 12px;  "> <span>Jan
+								<strong class="text-upper">2015 </strong>
+							</span></time>
+
+							<h3 style="font-weight: 600; font-size: 18px;">UX Designer</h3>
+							<!-- <div class="exp-education-logo">
+								<img src="images/star.png" style="height: 2em; width: 2em"
+									alt="">
+							</div> -->
+							<span class="exp-education-company"
+								style="font-weight: 400; font-size: 16px;">TATA
+								Consulting Services </span>
+						</div>
+
+
+						<div class="exp-education-box">
+							<time class="exp-education-date" datetime="2014-01T2016-03"
+								style="font-weight: 300; font-size: 12px;  "> <span>Sep
+								<strong class="text-upper">2016 </strong>
+							</span></time>
+
+							<h3 style="font-weight: 600; font-size: 18px;">Lead UX
+								Designer</h3>
+							<!-- <div class="exp-education-logo">
+								<img src="images/star.png" style="height: 2em; width: 2em"
+									alt="">
+							</div> -->
+							<span class="exp-education-company"
+								style="font-weight: 400; font-size: 16px;">TATA
+								Consulting Services </span>
+						</div>
+					</div>
+
+
+
+					<!-- <div class="vertical_line">
+						<div class="dot"></div>
+						<span style="padding:10px"></span>
+					</div> -->
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="container-fluid" id="myworks"
+		style="background-color: #373737">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10" style="margin-top: 70px">
+						<h2 class="header">
+							<span>My Works</span>
+						</h2>
+						<br>
+						<p
+							style="font-size: 15px; letter-spacing: 1px; margin-top: 100px;">
+							My experience lies in end-to-end user experience, from user
+							research to visual design to usability testing. In my spare time
+							I like to immerse myself in photography, e-learning and code.
+							When it comes to work, I want to be involved in projects that I
+							find challenging with people that inspire me.</p>
+
+					</div>
+				</div>
+				<br> <br> <br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 col-xs-offset-1 col-xs-10">
+				<div class="row">
+					<div class="col-md-4 caption">
+						<img class="caption__media" src="images/bulb.png"
+							style="width: 100%">
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<a href="files/design.pdf" target="_blank"
+									style="text-decoration: none; color: white"><center>Ambient
+										Comfort Feedback</center></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 caption">
+						<img class="caption__media" src="images/dc.png" />
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>DC Dashboard</center>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 caption">
+						<img class="caption__media" src="images/delivery.png" />
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">Delivery Excellence &
+								Risk Management</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 30px">
+					<div class="col-md-4 caption">
+
+						<img class="caption__media" src="images/dtc portal.png"
+							style="width: 100%">
+
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>DTC Portal</center>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 caption">
+
+						<img class="caption__media" src="images/events.png" />
+
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>TCS Events Management</center>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 caption">
+
+						<img class="caption__media" src="images/gps.png" />
+
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>GPS IPD Tracking System</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="row">
+					<div class="col-md-4 caption">
+
+						<img class="caption__media" src="images/kom.png"
+							style="width: 100%">
+
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>Kompass Monthly Status</center>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 caption">
+
+						<img class="caption__media" src="images/game.png" />
+
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>Gamificaion</center>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 caption">
+
+						<img class="caption__media" src="images/im-ex.png" />
+
+						<div class="caption__overlay">
+							<div class="caption__overlay__title">
+								<center>Import Export Digitization</center>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container-fluid" id="whyme"
+		style="background-color: #373737">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-12" style="margin-top: 70px">
+				<h2 class="header">
+					<span>Hire Me</span>
+				</h2>
+			</div>
+			<br>
+			<p
+				style="margin-top: 160px; font-size: 24px; color: white; margin-left: 130px">lorem
+				ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+			<br> <br> <br> <br>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="col-md-offset-1 col-md-3" style="padding-left: 60px">
+					<img src="images/electricity.jpg" style="height: 4em; width: 5em">
+				</div>
+				<div class="col-md-8" style="color: white; font-size: 24px">lorem
+					ipsum lorem</div>
+			</div>
+			<div class="col-md-6"
+				style="color: white; text-align: left; padding-right: 100px">lorem
+				ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+				lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+				ipsumlorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+				lorem ipsum</div>
+		</div>
+		<br> <br> <br> <br>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="col-md-offset-1 col-md-3" style="padding-left: 60px">
+					<img src="images/electricity.jpg" style="height: 4em; width: 5em">
+				</div>
+				<div class="col-md-8" style="color: white; font-size: 24px">lorem
+					ipsum lorem</div>
+			</div>
+			<div class="col-md-6"
+				style="color: white; text-align: left; padding-right: 100px">lorem
+				ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+				lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+				ipsumlorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+				lorem ipsum</div>
+		</div>
+		<br> <br> <br> <br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="col-md-offset-1 col-md-3" style="padding-left: 60px">
+					<img src="images/electricity.jpg" style="height: 4em; width: 5em">
+				</div>
+				<div class="col-md-8" style="color: white; font-size: 24px">lorem
+					ipsum lorem</div>
+			</div>
+			<div class="col-md-6"
+				style="color: white; text-align: left; padding-right: 100px">lorem
+				ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+				lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+				ipsumlorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+				lorem ipsum</div>
+		</div>
+
+
+		<br>
+	</div>
+
+	<div class="container-fluid" id="contact"
+		style="background-color: #373737">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-12" style="margin-top: 10px">
+				<h2 class="header">
+					<span>Contact</span>
+				</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-xs-12"
+				style="color: white; margin-top: 100px; padding-left: 130px">
+				<p style="margin-right: 40px; font-size: 24px; color: white">
+					I'm seeking full time opportunities in <b>Hyderabad,India</b>
+				</p>
+			</div>
+
+
+		</div>
+		<br> <br> <br> <br> <br>
+
+		<div class="row">
+			<div class=" col-md-offset-2 col-md-4 col-xs-offset-0 col-xs-12"
+				style="padding-left: 50px; padding-right: 50px">
+				<div class="row">
+					<div class="col-xs-2" style="background: #fff; height: 52px">
+						<i
+							style="color: black; font-size: 25px; margin-top: 13px; padding-left: 15px"
+							class="fa fa-phone fa-th-large" aria-hidden="true"></i>
+					</div>
+					<div class="col-xs-10" style="border: thin solid #fff">
+						<div
+							style="width: 250px; height: 50px; color: white; font-size: 20px;">
+							<p style="padding-left: 55px; padding-top: 10px">+91 77 200
+								50 700</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="  col-md-4 col-xs-offset-0 col-xs-12"
+				style="padding-left: 50px; padding-right: 50px">
+				<div class="row">
+					<div class="col-xs-2" style="background: #fff; height: 52px">
+						<i
+							style="color: black; font-size: 25px; margin-top: 13px; padding-left: 10px"
+							class="fa fa-envelope fa-th-large" aria-hidden="true"></i>
+					</div>
+					<div class="col-xs-10" style="border: thin solid #fff">
+						<div
+							style="width: 250px; height: 50px; color: white; font-size: 20px;">
+							<p style="padding-left: 40px; padding-top: 10px">Javeed.ux@gmail.com
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<br> <br> <br> <br> <br>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-offset-5 col-md-7"
+				style="color: white; font-size: 20px; padding-left: 60px">Get
+				Social</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12" style="margin-top: 30px">
+				<center>
+					<a href="#" class="active" data-toggle="tooltip" title=""><i
+						style="color: #d14b4a; font-size: 20px;" class="fa fa-facebook "
+						aria-hidden="true"></i></a> <a href="#" class="active"
+						data-toggle="tooltip" title=""> <i
+						style="color: #d14b4a; font-size: 20px; margin-left: 20px"
+						class="fa fa-twitter" aria-hidden="true"></i></a> <a href="#"
+						class="active" data-toggle="tooltip" title=""> <i
+						style="color: #d14b4a; font-size: 20px; margin-left: 20px"
+						class="fa fa-google-plus" aria-hidden="true"></i>
+					</a> <a href="#" class="active" data-toggle="tooltip" title=""><i
+						style="color: #d14b4a; font-size: 20px; margin-left: 20px"
+						class="fa fa-instagram" aria-hidden="true"></i></a> <a href="#"
+						class="active" data-toggle="tooltip" title=""><i
+						style="color: #d14b4a; font-size: 20px; margin-left: 20px"
+						class="fa fa-pinterest" aria-hidden="true"></i></a>
+				</center>
+			</div>
+			<br> <br> <br> <br> <br> <br> <br>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-4 col-md-8"
+				style="color: white; padding-left: 50px; letter-spacing: 2px;">@Copyright
+				2017 Javeed Hussain's Portfolio</div>
+		</div>
+	</div>
 </body>
-
 </html>
