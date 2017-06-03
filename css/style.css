@@ -1404,12 +1404,12 @@ strong {
 	}
 	.project-overlay {
 		width: 90%;
-		padding-top: 215px;
+		padding-top: 210px;
 		font-size: 18px;
 	}
 	.project-img:HOVER ~.project-overlay,.project-overlay:HOVER {
 		background: rgba(0, 0, 0, 0);
-		padding-top: 215px;
+		padding-top: 210px;
 	}
 	.why-me-section:FIRST-CHILD {
 		margin-top: 0;
