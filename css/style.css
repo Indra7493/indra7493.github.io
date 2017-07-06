@@ -1216,10 +1216,10 @@ body {
 	text-align: center;
 }
 
-.project-img:HOVER ~.project-overlay,.project-overlay:HOVER {
+/*.project-img:HOVER ~.project-overlay,.project-overlay:HOVER {
 	background: rgba(0, 0, 0, 0.8);
 	padding-top: 120px;
-}
+}*/
 
 .con1 {
 	height: 350px;
